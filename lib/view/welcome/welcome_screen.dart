@@ -1,12 +1,12 @@
-import 'package:chat_front/utils/constants/app_paddings.dart';
-import 'package:chat_front/utils/constants/text_style.dart';
-import 'package:chat_front/utils/extensions/screen_size.dart';
-import 'package:chat_front/utils/extensions/sized_box.dart';
-import 'package:chat_front/utils/widgets/main_button.dart';
-import 'package:chat_front/view/home_screen/home_screen.dart';
+import 'package:chat_front/extensions/screen_size.dart';
+import 'package:chat_front/extensions/sized_box.dart';
+import 'package:chat_front/view/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../utils/constants/png_assets.dart';
+import '../../constants/app_paddings.dart';
+import '../../constants/assets.dart';
+import '../../constants/text_style.dart';
+import '../../widgets/main_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -21,7 +21,7 @@ class WelcomeScreen extends StatelessWidget {
             children: [
               SizedBox(
                 height: context.screenHeight * 0.41,
-                child: Image(image: AssetImage(PngAssets.ai)),
+                child: Image(image: AssetImage(Assets.ai)),
               ), //
               //24.h,
               Container(

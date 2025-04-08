@@ -1,6 +1,7 @@
-import 'package:chat_front/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+
+import '../../../constants/app_colors.dart';
 
 class ChatHistorySetButtons extends HookWidget {
   final void Function()? onChatPressed;
@@ -65,10 +66,10 @@ class ChatHistorySetButtons extends HookWidget {
       icon: Icon(icon, color: AppColors.primary),
       label: Text(label, style: TextStyle(color: AppColors.primary)),
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(
+        backgroundColor: WidgetStateProperty.all(
           isSelected ? AppColors.blue : AppColors.secondaryLight,
         ),
-        foregroundColor: MaterialStateProperty.all(
+        foregroundColor: WidgetStateProperty.all(
           AppColors.primary,
         ), // Text color
       ),

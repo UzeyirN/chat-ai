@@ -1,4 +1,4 @@
-import 'package:chat_front/utils/extensions/screen_size.dart';
+import 'package:chat_front/extensions/screen_size.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/text_style.dart';

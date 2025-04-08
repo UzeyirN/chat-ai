@@ -1,4 +1,4 @@
-class PngAssets {
+class Assets {
   static const _path = 'assets/png';
 
   static const splash = '$_path/splash.png';

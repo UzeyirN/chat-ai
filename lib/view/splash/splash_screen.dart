@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../../utils/constants/app_colors.dart';
-import '../../utils/constants/png_assets.dart';
-import '../../utils/constants/text_style.dart';
-import '../welcome_screen/welcome_screen.dart';
+import '../../constants/app_colors.dart';
+import '../../constants/assets.dart';
+import '../../constants/text_style.dart';
+import '../welcome/welcome_screen.dart';
 
 class SplashScreen extends HookWidget {
   const SplashScreen({super.key});
@@ -36,7 +36,7 @@ class SplashScreen extends HookWidget {
                   spacing: 5,
                   children: [
                     Image(
-                      image: AssetImage(PngAssets.splash),
+                      image: AssetImage(Assets.splash),
                       width: 50,
                       height: 50,
                     ),

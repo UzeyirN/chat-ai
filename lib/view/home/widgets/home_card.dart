@@ -1,5 +1,9 @@
-import 'package:chat_front/utils/constants/app_colors.dart';
+import 'package:chat_front/view/text_improve/text_improve_screen.dart';
+import 'package:chat_front/view/text_to_speech/text_to_speech_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../../../constants/app_colors.dart';
+import '../../../constants/app_paddings.dart';
 
 class HomeCard extends StatelessWidget {
   const HomeCard({super.key});
@@ -12,14 +16,24 @@ class HomeCard extends StatelessWidget {
         spacing: 10,
         children: [
           _buildHomeCard(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TextImproveScreen()),
+              );
+            },
             color: AppColors.yellow,
             title: 'Text Improvement',
             subTitle: 'Enhances and corrects English text using GPT-4',
             imagePath: 'assets/png/writing.png',
           ),
           _buildHomeCard(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TextToSpeechScreen()),
+              );
+            },
             color: AppColors.secondaryBlue,
             title: 'Text-to-Speech (TTS)',
             subTitle:
@@ -48,7 +62,7 @@ class HomeCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(12),
+        padding: AppPaddings.a16,
         width: 250,
         height: 250,
         decoration: BoxDecoration(
@@ -74,7 +88,7 @@ class HomeCard extends StatelessWidget {
             Expanded(
               flex: 0,
               child: Padding(
-                padding: const EdgeInsets.only(top: 8),
+                padding: AppPaddings.v8,
                 child: Text(
                   subTitle,
                   style: TextStyle(color: AppColors.primary),

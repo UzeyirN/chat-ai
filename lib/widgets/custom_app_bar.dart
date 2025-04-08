@@ -1,13 +1,14 @@
-import 'package:chat_front/utils/constants/app_colors.dart';
-import 'package:chat_front/utils/constants/text_style.dart';
-import 'package:chat_front/view/welcome_screen/welcome_screen.dart';
+import 'package:chat_front/view/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget {
+import '../constants/app_colors.dart';
+import '../constants/text_style.dart';
+
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool? showCancelButton;
   final bool? leading;
-  final bool showDefaultAction;
+  final bool showDefaultAction, showBottomBorder;
   final Color? bgColor, backButtonColor;
 
   const CustomAppBar(
@@ -16,6 +17,7 @@ class CustomAppBar extends StatelessWidget {
     this.showCancelButton,
     this.leading,
     this.showDefaultAction = false,
+    this.showBottomBorder = false,
     this.bgColor,
     this.backButtonColor,
   });
@@ -25,60 +27,76 @@ class CustomAppBar extends StatelessWidget {
     this.showCancelButton,
     this.leading,
     this.showDefaultAction = false,
+    this.showBottomBorder = false,
     this.bgColor,
     this.backButtonColor,
   }) : title = '';
 
   @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  @override
   Widget build(BuildContext context) {
     return Container(
-      color: bgColor ?? AppColors.secondary,
-      padding: EdgeInsets.only(
-        top: MediaQuery.of(context).padding.top,
-      ), // To accommodate the status bar
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          // Leading (Back button or title)
-          leading == true
-              ? IconButton(
-                onPressed:
-                    () =>
-                        Navigator.canPop(context)
-                            ? Navigator.pop(context)
-                            : null,
-                icon: Icon(
-                  Icons.cancel_outlined,
-                  color: backButtonColor ?? AppColors.primary,
-                  size: 30, // Size of the cancel button
+      decoration: BoxDecoration(
+        color: bgColor ?? AppColors.secondary,
+        border:
+            showBottomBorder
+                ? Border(
+                  bottom: BorderSide(
+                    color: AppColors.secondaryLight,
+                    width: 0.5,
+                  ),
+                )
+                : null,
+      ),
+      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+      child: SizedBox(
+        height: kToolbarHeight,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            leading == true
+                ? IconButton(
+                  onPressed:
+                      () =>
+                          Navigator.canPop(context)
+                              ? Navigator.pop(context)
+                              : null,
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    color: backButtonColor ?? AppColors.primary,
+                    size: 30,
+                  ),
+                )
+                : Text("Chat AI", style: homeTitle),
+            Expanded(
+              child: Center(
+                child: Text(
+                  title,
+                  style: appBarTextStyle,
+                  overflow: TextOverflow.ellipsis,
                 ),
-              )
-              : Text(
-                "Chat AI",
-                style: homeTitle, // Increase font size
-              ),
-          // Title
-          Expanded(
-            child: Center(
-              child: Text(
-                title,
-                style: appBarTextStyle,
-                overflow: TextOverflow.ellipsis,
               ),
             ),
-          ),
-          // Actions (If any)
-          if (showDefaultAction)
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => WelcomeScreen()),
-                );
-              },
-              icon: Icon(Icons.more_horiz, size: 24, color: AppColors.primary),
-            ),
-        ],
+            if (showDefaultAction)
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const WelcomeScreen(),
+                    ),
+                  );
+                },
+                icon: Icon(
+                  Icons.more_horiz,
+                  size: 24,
+                  color: AppColors.primary,
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }

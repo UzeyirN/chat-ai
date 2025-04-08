@@ -4,6 +4,7 @@ class AppPaddings {
   AppPaddings._();
 
   static const a6 = EdgeInsets.all(6);
+  static const a12 = EdgeInsets.all(12);
   static const a16 = EdgeInsets.all(16);
   static const a20 = EdgeInsets.all(20);
   static const a24 = EdgeInsets.all(24);
@@ -45,6 +46,7 @@ class AppPaddings {
   static const b30 = EdgeInsets.only(bottom: 30);
   static const b50 = EdgeInsets.only(bottom: 50);
   static const h16v8 = EdgeInsets.symmetric(horizontal: 16, vertical: 8);
+  static const h12v8 = EdgeInsets.symmetric(horizontal: 12, vertical: 8);
   static const learningCardsPadding = EdgeInsets.only(
     top: 32,
     left: 16,

@@ -1,7 +1,8 @@
-import 'package:chat_front/utils/constants/app_colors.dart';
-import 'package:chat_front/view/splash_screen/splash_screen.dart';
+import 'package:chat_front/view/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'constants/app_colors.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
