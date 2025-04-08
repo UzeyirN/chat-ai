@@ -50,7 +50,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 )
                 : null,
       ),
-      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+      padding: EdgeInsets.only(
+        top: MediaQuery.of(context).padding.top,
+        right: 15,
+        left: 15,
+      ),
+
       child: SizedBox(
         height: kToolbarHeight,
         child: Row(

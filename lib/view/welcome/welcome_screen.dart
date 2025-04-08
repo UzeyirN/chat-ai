@@ -1,12 +1,7 @@
-import 'package:chat_front/extensions/screen_size.dart';
-import 'package:chat_front/extensions/sized_box.dart';
-import 'package:chat_front/view/home/home_screen.dart';
+import 'package:chat_front/view/welcome/widgets/welcome_content.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/app_paddings.dart';
-import '../../constants/assets.dart';
-import '../../constants/text_style.dart';
-import '../../widgets/main_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -15,45 +10,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 35),
-          child: Column(
-            children: [
-              SizedBox(
-                height: context.screenHeight * 0.41,
-                child: Image(image: AssetImage(Assets.ai)),
-              ), //
-              //24.h,
-              Container(
-                padding: AppPaddings.h35,
-                child: Text(
-                  textAlign: TextAlign.center,
-                  'Welcome to Ai chat bot',
-                  style: homeTitle,
-                ),
-              ),
-              24.h,
-              Padding(
-                padding: AppPaddings.h30,
-                child: Text(
-                  textAlign: TextAlign.center,
-                  'This app allows you to interact with a chatbot powered by AI. Start chatting with the bot and ask questions.',
-                  style: homeContent,
-                ),
-              ),
-              48.h,
-              MainButton(
-                text: 'Get Started',
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
-                  );
-                },
-              ),
-            ], //
-          ),
-        ),
+        child: Padding(padding: AppPaddings.screenPad, child: WelcomeContent()),
       ),
     );
   }

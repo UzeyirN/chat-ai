@@ -53,5 +53,8 @@ class AppPaddings {
     right: 16,
     bottom: 50,
   );
+
+  static const screenPad = EdgeInsets.symmetric(horizontal: 30, vertical: 35);
+
   static const zero = EdgeInsets.zero;
 }
