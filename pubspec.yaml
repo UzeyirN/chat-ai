@@ -17,19 +17,19 @@ dependencies:
   flutter_hooks: ^0.21.2
   riverpod: ^2.6.1
   flutter_riverpod: ^2.6.1
-  riverpod_generator: ^2.6.5 # riverpod_generator versiyasını da əlavə etdim
+  riverpod_generator: ^2.6.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
-  build_runner: ^2.4.6 # build_runner versiyasını düzgün qoydum
+  build_runner: ^2.4.6
 
 flutter:
   uses-material-design: true
 
   assets:
-    - assets/png/  # assets qovluğunu da daxil etdim
+    - assets/png/
   #   - images/a_dot_ham.jpeg
 
   # Custom fonts can be added here if needed
